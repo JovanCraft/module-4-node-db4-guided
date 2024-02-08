@@ -56,3 +56,10 @@ exports.down = async function(knex) {
 };
 
 //in the down function, the tables MUST BE DESTROYED IN THE REVERSE ORDER!
+
+//to make it where you cannot delet or uodate foreign keys put 'RESTRICT', to make them changable but 'CASCADE'
+
+/*
+when running ** delete from species
+where species_id = 1; ** in sqlite studios after changing all the 'RESTRICT' to 'CASCADE', it affected 6 rows! Meaning it deleted not only the species 'star-nosed mole, but everything involved with the species, including Snuffles and Polonius :'(
+*/
