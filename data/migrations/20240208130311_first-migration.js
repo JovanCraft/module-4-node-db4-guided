@@ -7,7 +7,7 @@ exports.up = async function(knex) {
     .createTable('zoos', table => {
         table.increments('zoo_id')
         table.string('zoo_name', 128).notNullable()
-        table.string('zoo_address', 128).unique()
+        table.string('address', 128).unique()
     })
     .createTable('species', table => {
         table.increments('species_id')
@@ -31,6 +31,13 @@ exports.up = async function(knex) {
         .notNullable()
         .references('zoo_id')
         .inTable('zoos')
+        .onDelete('RESTRICT')
+        .onUpdate('RESTRICT')
+        table.integer('animal_id')
+        .unsigned()
+        .notNullable()
+        .references('animal_id')
+        .inTable('animals')
         .onDelete('RESTRICT')
         .onUpdate('RESTRICT')
     })
