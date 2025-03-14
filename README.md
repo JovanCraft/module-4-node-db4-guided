@@ -32,4 +32,3 @@ For the `animals` the client wants to record:
 Determine the database tables necessary to track this information and build the migrations
 
 
-
